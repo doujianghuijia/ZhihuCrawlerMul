@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="version1.com.tangcheng.mapper.MovieMapper">
+
+    <resultMap id="movieResult" type="version1.com.tangcheng.model.Movie">
+        <id column="movie_id" jdbcType="INTEGER" property="movie_id"/>
+        <result column="movie_name" jdbcType="VARCHAR" property="movie_name"/>
+        <result column="movie_score" jdbcType="VARCHAR" property="movie_score"/>
+        <result column="movie_duration" jdbcType="VARCHAR" property="movie_duration"/>
+        <result column="movie_region" jdbcType="VARCHAR" property="movie_region"/>
+        <result column="movie_director" jdbcType="VARCHAR" property="movie_director"/>
+        <result column="movie_actors" jdbcType="VARCHAR" property="movie_actors"/>
+        <result column="movie_picture" jdbcType="VARCHAR" property="movie_picture"/>
+    </resultMap>
+
+    <!--<select id="selectMovie"  resultMap="movieResult" parameterType="String">-->
+        <!--select * from t_test_student WHERE-->
+        <!--<if test="_parameter!=null &amp;&amp; !&quot;&quot;.equals(_parameter)">-->
+            <!--name like '%' #{_parameter} '%'-->
+        <!--</if>-->
+    <!--</select>-->
+
+    <!--<delete id="deleteUser" parameterType="int">-->
+        <!--DELETE FROM t_test_student WHERE SID=#{_parameter}-->
+    <!--</delete>-->
+
+    <!--<delete id="deleteUsers" parameterType="int[]">-->
+        <!--DELETE FROM T_TEST_STUDENT WHERE SID IN-->
+        <!--<foreach collection="array" item="id" separator="," open="(" close=")">-->
+            <!--#{id}-->
+        <!--</foreach>-->
+    <!--</delete>-->
+
+    <insert id="addMovie" parameterType="version1.com.tangcheng.model.Movie">
+        REPLACE  INTO t_movie(movie_id,movie_name,movie_score,movie_duration,movie_region,movie_director,movie_actors,movie_picture)
+        VALUES (#{movie_id},#{movie_name},#{movie_score},#{movie_duration},#{movie_region},#{movie_director},#{movie_actors},#{movie_picture})
+    </insert>
+
+    <!--<insert id="insertUsers" parameterType="java.util.List">-->
+        <!--INSERT INTO T_TEST_STUDENT(sid,name,birthday) VALUES-->
+        <!--<foreach collection="list" item="user" separator=",">-->
+            <!--(#{user.uid},#{user.name},#{user.birthday})-->
+        <!--</foreach>-->
+    <!--</insert>-->
+
+    <!--<update id="updateUser" parameterType="com.tangcheng.model.MyUser">-->
+        <!--UPDATE t_test_student SET NAME=#{name} WHERE sid=#{uid}-->
+    <!--</update>-->
+</mapper>

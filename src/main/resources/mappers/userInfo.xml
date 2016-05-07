@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="version1.com.tangcheng.mapper.UserInfoMapper">
+
+    <update id="updateUserInfo" parameterType="version1.com.tangcheng.model.UserInfo">
+        UPDATE t_userinfo SET nickName=#{nickName},gender=#{gender},oneSentence=#{oneSentence},description=#{description},business=#{business},weibo=#{weibo},location=#{location},career=#{career},employment=#{employment},position=#{position},education=#{education},locationExp=#{locationExp},followeeNumber=#{followeeNumber},followerNumber=#{followerNumber},voteNumber=#{voteNumber},thankNumber=#{thankNumber},favNumber=#{favNumber},shareNumber=#{shareNumber},visitedNumber=#{visitedNumber},askNumber=#{askNumber},answerNumber=#{answerNumber},postNumber=#{postNumber},collectionNumber=#{collectionNumber},logsNumber=#{logsNumber},followedNumber=#{followedNumber},topicNumber=#{topicNumber},picStr=#{picStr}
+        WHERE userName=#{userName}
+    </update>
+
+    <select id="selectUserInfoBydeepLength" parameterType="int" resultType="version1.com.tangcheng.model.UserInfo">
+        SELECT * FROM t_userinfo WHERE deepLength = #{_parameter}
+    </select>
+
+    <insert id="addUserName" parameterType="version1.com.tangcheng.model.UserInfo">
+        INSERT IGNORE INTO t_userinfo(userName,deepLength) VALUES (#{userName},#{deepLength})
+    </insert>
+
+    <insert id="addUserInfo" parameterType="version1.com.tangcheng.model.UserInfo">
+        INSERT INTO t_userinfo(userName,nickName,oneSentence,gender,description,business,weibo,location,career,employment,position,education,locationExp,followeeNumber,followerNumber,voteNumber,thankNumber,favNumber,shareNumber,visitedNumber,askNumber,answerNumber,postNumber,collectionNumber,logsNumber,followedNumber,topicNumber,picStr,deepLength)
+        VALUES (#{userName},#{nickName},#{gender},#{oneSentence},#{description},#{business},#{weibo},#{location},#{career},#{employment},#{position},#{education},#{locationExp},#{followeeNumber},#{followerNumber},#{voteNumber},#{thankNumber},#{favNumber},#{shareNumber},#{visitedNumber},#{askNumber},#{answerNumber},#{postNumber},#{collectionNumber},#{logsNumber},#{followedNumber},#{topicNumber},#{picStr},#{deepLength})
+    </insert>
+
+</mapper>

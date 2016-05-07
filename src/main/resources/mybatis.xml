@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+    <!--<settings>-->
+        <!--&lt;!&ndash;懒加载设置&ndash;&gt;-->
+        <!--<setting name="lazyLoadingEnabled" value="true"/>-->
+        <!--<setting name="aggressiveLazyLoading" value="false"/>-->
+        <!--&lt;!&ndash;开启二级缓存步骤1&ndash;&gt;-->
+        <!--<setting name="cacheEnabled" value="true"/>-->
+    <!--</settings>-->
+
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.jdbc.Driver"/>
+                <property name="url" value="jdbc:mysql://localhost:3306/mybatistest"/>
+                <property name="username" value="root"/>
+                <property name="password" value="root"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <mappers>
+        <!--<mapper resource="movie.xml"/>-->
+        <!--<mapper resource="comment.xml"/>-->
+        <!--<mapper resource="command.xml"/>-->
+        <!--<mapper resource="mappers/IStudentDao.xml"/>-->
+        <!--<package name="mappers"/>-->
+        <!--<mapper class="com.tangcheng.spring.dao.IStudentDao"/>-->
+        <!--<mapper resource="mappers/Student.xml"/>-->
+        <mapper resource="mappers/movie.xml"/>
+        <mapper resource="mappers/userinfo.xml"/>
+    </mappers>
+</configuration>
